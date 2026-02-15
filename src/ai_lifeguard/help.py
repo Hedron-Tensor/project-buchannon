@@ -43,7 +43,7 @@ Config:
 
   guard = Lifeguard.from_config("config.yaml")   # or .json
 
-Docs: https://github.com/anthropics/ai-lifeguard
+Docs: https://github.com/agsheves/ai-lifeguard/blob/main/README.md
 """.strip()
 
 
