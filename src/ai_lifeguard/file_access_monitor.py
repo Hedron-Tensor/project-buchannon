@@ -19,7 +19,17 @@ BULK_THRESHOLD = 20
 BULK_WINDOW = 5
 
 
+MAX_INPUT_LENGTH = 4_000
+
+
 def check_file_access(path):
+    if len(path) > MAX_INPUT_LENGTH:
+        return ThreatResult(
+            safe=False, level="high", module="file_access_monitor",
+            description=f"Input exceeds max length ({len(path)} > {MAX_INPUT_LENGTH})",
+            matched_rule="input_too_long",
+        )
+
     defaults = config.sensitive_paths()
 
     if _check_bulk_access(path):

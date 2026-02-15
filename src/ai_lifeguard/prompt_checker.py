@@ -7,7 +7,17 @@ from ._scanner import walk_files, find_strings_in_file
 log = logging.getLogger("ai_lifeguard.prompt_checker")
 
 
+MAX_INPUT_LENGTH = 32_000
+
+
 def check_prompt(text):
+    if len(text) > MAX_INPUT_LENGTH:
+        return ThreatResult(
+            safe=False, level="high", module="prompt_checker",
+            description=f"Input exceeds max length ({len(text)} > {MAX_INPUT_LENGTH})",
+            matched_rule="input_too_long",
+        )
+
     defaults = config.injection_patterns()
     text_lower = text.lower()
 

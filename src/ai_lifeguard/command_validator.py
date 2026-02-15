@@ -13,7 +13,17 @@ CMD_SOURCE_PATTERNS = re.compile(
 )
 
 
+MAX_INPUT_LENGTH = 8_000
+
+
 def check_command(cmd, allowed_commands=None):
+    if len(cmd) > MAX_INPUT_LENGTH:
+        return ThreatResult(
+            safe=False, level="high", module="command_validator",
+            description=f"Input exceeds max length ({len(cmd)} > {MAX_INPUT_LENGTH})",
+            matched_rule="input_too_long",
+        )
+
     defaults = config.blocked_commands()
 
     for category, patterns in defaults.items():

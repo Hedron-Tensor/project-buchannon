@@ -20,7 +20,17 @@ COMMON_DOMAINS = [
 HOMOGRAPH_SCRIPTS = {"CYRILLIC", "GREEK", "ARMENIAN", "CHEROKEE"}
 
 
+MAX_INPUT_LENGTH = 8_000
+
+
 def check_endpoint(url, allowed_domains=None):
+    if len(url) > MAX_INPUT_LENGTH:
+        return ThreatResult(
+            safe=False, level="high", module="connection_validator",
+            description=f"Input exceeds max length ({len(url)} > {MAX_INPUT_LENGTH})",
+            matched_rule="input_too_long",
+        )
+
     try:
         parsed = urlparse(url)
     except Exception:

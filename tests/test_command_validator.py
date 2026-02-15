@@ -68,3 +68,9 @@ def test_allowlist():
     r = check_command("npm install", allowed_commands=["git", "ls"])
     assert not r.safe
     assert "allowlist" in r.matched_rule
+
+
+def test_oversized_input():
+    r = check_command("a" * 10_000)
+    assert not r.safe
+    assert r.matched_rule == "input_too_long"
