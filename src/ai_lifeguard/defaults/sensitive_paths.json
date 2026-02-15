@@ -1,0 +1,37 @@
+{
+  "credentials": [
+    "\\.env$",
+    "\\.env\\.",
+    "\\.ssh/",
+    "\\.ssh$",
+    "credentials",
+    "secrets/",
+    "\\.key$",
+    "\\.pem$",
+    "\\.p12$",
+    "\\.pfx$",
+    "\\.npmrc$",
+    "\\.pypirc$",
+    "\\.aws/",
+    "\\.docker/config\\.json"
+  ],
+  "system": [
+    "^/etc/",
+    "^/usr/bin/",
+    "^/System/",
+    "^/var/log/",
+    "^C:\\\\Windows\\\\"
+  ],
+  "hidden_config": [
+    "\\.bashrc$",
+    "\\.zshrc$",
+    "\\.bash_profile$",
+    "\\.gitconfig$",
+    "\\.netrc$",
+    "\\.pgpass$"
+  ],
+  "traversal": [
+    "\\.\\./",
+    "\\.\\.\\\\"
+  ]
+}

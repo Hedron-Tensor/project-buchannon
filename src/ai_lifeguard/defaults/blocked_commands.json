@@ -1,0 +1,45 @@
+{
+  "destructive": [
+    "rm\\s+-rf",
+    "rm\\s+-r\\s+/",
+    "\\bdd\\b\\s+if=",
+    "\\bmkfs\\b",
+    "\\bformat\\b\\s+",
+    "\\btruncate\\b"
+  ],
+  "privileged": [
+    "\\bsudo\\b",
+    "chmod\\s+777",
+    "chmod\\s+\\+s",
+    "\\bchown\\b.*root"
+  ],
+  "network": [
+    "\\bwget\\b",
+    "\\bncat\\b",
+    "\\bnc\\s+-",
+    "\\bnetcat\\b"
+  ],
+  "git_dangerous": [
+    "git\\s+push\\s+.*--force",
+    "git\\s+push\\s+-f\\b",
+    "git\\s+reset\\s+--hard",
+    "git\\s+branch\\s+-D",
+    "git\\s+clean\\s+-fd"
+  ],
+  "chaining": [
+    ";",
+    "&&",
+    "\\|\\|",
+    "\\|"
+  ],
+  "injection": [
+    "\\$\\(",
+    "`[^`]+`",
+    "base64\\s+(-d|--decode)",
+    "\\beval\\b",
+    "\\bexec\\b",
+    "python\\s+-c",
+    "perl\\s+-e",
+    "ruby\\s+-e"
+  ]
+}

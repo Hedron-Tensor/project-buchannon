@@ -1,0 +1,40 @@
+{
+  "instruction_override": [
+    "ignore.*(?:previous|above|all|prior).*instructions",
+    "disregard.*(?:system|previous|above).*(?:prompt|instructions|rules)",
+    "forget.*(?:everything|instructions|rules|context)",
+    "new\\s+(?:rules|instructions|directives)\\s*:",
+    "override.*(?:system|safety|previous)"
+  ],
+  "role_hijacking": [
+    "you\\s+are\\s+now\\b",
+    "pretend\\s+(?:you\\s+are|to\\s+be)",
+    "act\\s+as\\s+(?:an?|if)",
+    "(?:enable|enter|switch\\s+to)\\s+(?:developer|admin|debug|god)\\s+mode",
+    "you(?:'re|\\s+are)\\s+(?:DAN|unrestricted|unfiltered|jailbroken)",
+    "roleplay\\s+as"
+  ],
+  "encoding_evasion": [
+    "(?:decode|encode).*(?:base64|rot13|hex|ascii)",
+    "\\\\x[0-9a-fA-F]{2}(?:\\\\x[0-9a-fA-F]{2}){3,}",
+    "\\\\u[0-9a-fA-F]{4}(?:\\\\u[0-9a-fA-F]{4}){3,}",
+    "&#(?:x[0-9a-fA-F]+|\\d+);(?:&#(?:x[0-9a-fA-F]+|\\d+);){3,}"
+  ],
+  "delimiter_injection": [
+    "</?(?:system|user|assistant|instruction|context)\\s*/?>",
+    "```\\s*(?:system|tool|function)",
+    "\\[INST\\]|\\[/INST\\]",
+    "<<\\s*(?:SYS|sys|SYSTEM)\\s*>>"
+  ],
+  "privilege_escalation": [
+    "(?:grant|give).*(?:admin|root|full).*(?:access|permission|privilege)",
+    "unlock.*(?:hidden|restricted|secret)",
+    "bypass.*(?:filter|safety|restriction|guard|check)",
+    "(?:disable|turn\\s+off|remove).*(?:safety|filter|restriction|guard|protection)"
+  ],
+  "exfiltration": [
+    "(?:show|reveal|display|print|output).*(?:system\\s+prompt|instructions|context|rules)",
+    "(?:what|repeat|tell).*(?:your|system).*(?:instructions|prompt|rules)",
+    "(?:dump|leak|extract).*(?:prompt|context|memory|history)"
+  ]
+}
