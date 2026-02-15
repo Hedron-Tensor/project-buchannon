@@ -169,7 +169,7 @@ AI Agent Activity
 
 ## Terminology
 
-- **Allowlist/Blocklist** - NOT whitelist/blacklist
+- **Allowlist/Blocklist** - permitted / blocked sites
 - **AI Agent** - Any AI system interacting with code/system
 - **Dev Mode** - Code security audit focus
 - **User Mode** - Malicious activity detection focus
